@@ -1,0 +1,18 @@
+<header class="header">
+    <link rel="stylesheet" href="/css/-base.css">
+    <nav class="navbar">
+        <img src="'/img/fotos/logo.png'">
+        <div class="logo">Hostería Solecito</div>
+        <ul class="nav-links">
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'Habitaciones' %}">Habitaciones</a></li>
+            <li><a href="{% url 'Galeria' %}">Galería</a></li>
+            <li><a href="{% url 'Reservas' %}">Reservas</a></li>
+            <li><a href="{% url 'Nosotros' %}">Nosotros</a></li>
+        </ul>
+        <div>
+            <a href="{% url 'login' %}"><button class="auth-btn">Login</button></a>
+            <a href="{% url 'Register' %}"><button class="auth-btn">Register</button></a>
+        </div>
+    </nav>
+</header>

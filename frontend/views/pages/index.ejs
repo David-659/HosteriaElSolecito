@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="{% block style %}  {% endblock %}" />
+    <title>Hosteria - {% block tittle %} inicio {% endblock %}</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_io/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_io/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon_io/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon_io/site.webmanifest' %}">
+</head>
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+    <div class="content">
+        <div class="overlay" id="hero">
+            <div class="hero-content">
+                <h1 class="excu">LA EXCLUSIVA HOSTERIA EN LAS AFUERAS DE MEDELLIN</h1>
+                <a href="{% url 'Reservas' %}" class="reserve-btn">RESERVAR AHORA</a>
+            </div>
+        </div> 
+    </div>
+    <Center><div class="container1">
+        <div class="image-section">
+            <div class="contenedor">
+                <div class="slide" style="width :600px;height :400px;">
+                    <ul>
+                        <li><img src="https://images.mirai.com/INFOROOMS/100122961/dmkkkLgZG7zEJ5wQ1cls/dmkkkLgZG7zEJ5wQ1cls_original.jpg" alt="" style="width :600px;height :400px;"></li>
+                        <li><img src="https://enzomuebles.com/wp-content/uploads/2023/09/peque-1-1024x897.jpg" alt="" style="width :600px;height :400px;"></li>
+                        <li><img src="https://www.xotels.com/wp-content/uploads/2022/07/Executive-Room-XOTELS.webp" alt=""style="width :600px;height :400px;"> </li>
+                        <li><img src="https://www.hotelbenidorm.co/assets/cache/uploads//habitaciones/751x501/suite-hotel-1686067424.webp?from=jpg" alt="" style="width :600px;height :400px;"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rooms-badge">
+                +20
+                <span>
+                    Habitaciones y mas
+                </span>
+            </div>
+        </div>
+        <div class="text-section">
+            <div class="welcome">
+                Bienvenido al solecito
+            </div>
+            <h1>
+                Relájate en nuestro hotel
+            </h1>
+            <p>
+                Un refugio de lo común, de la vida diaria. El poder gozar de cada día, el poder disfrutar de
+                la cotidianidad, de nuestro quehacer diario y llevarlo al siguiente nivel para entender que la felicidad
+                no es un fin, sino un medio. Allí está el secreto en nuestro
+                <em>
+                    hospedaje en las afueras de medellin.
+                </em>
+            </p>
+        </div>
+    </div>
+    <br>
+    <h2 id="titulo">ACTIVIDADES</h2>
+    <div class="fu">
+          <!-- Sección de Restaurante ZAMÚ -->
+    <section class="service-section">
+        <div class="bg-texture"></div>
+        <div class="service-content">
+            <h2 class="servi-ce-title">ZAMÚ Restaurante</h2>
+            <p class="service-description">Disfrute de nuestra cocina preparada con ingredientes locales y frescos, seleccionados cuidadosamente para ofrecerle una experiencia gastronómica única.</p>
+            <p class="service-description">Nuestro chef ejecutivo ha creado un menú que combina lo mejor de la cocina regional con técnicas contemporáneas, resaltando los sabores auténticos en cada plato.</p>
+            <p class="service-description">Desde el desayuno hasta la cena, cada servicio es una oportunidad para deleitar sus sentidos en un ambiente relajado y con vista al mar.</p>
+            <a href="#" class="service-cta">Ver menú</a>
+        </div>
+        <div class="service-image">
+            <img src="/api/placeholder/600/400" alt="Restaurante ZAMÚ">
+        </div>
+    </section>
+
+    <!-- Sección de Circuito de Spa -->
+    <section class="service-section">
+        <div class="bg-texture"></div>
+        <div class="service-content">
+            <h2 class="service-title">Circuito de Spa</h2>
+            <p class="service-description">Adéntrese en un mundo de bienestar y relajación, donde podrá disfrutar de nuestro circuito de spa en medio de la naturaleza.</p>
+            <p class="service-description">Nuestras instalaciones cuentan con saunas, jacuzzis, piscinas termales y espacios de meditación. Nuestros terapeutas expertos le guiarán a través de tratamientos que combinan técnicas ancestrales con las más modernas prácticas de relajación y bienestar.</p>
+            <a href="#" class="service-cta">Leer más</a>
+        </div>
+        <div class="service-image">
+            <img src="/api/placeholder/600/400" alt="Circuito de Spa">
+        </div>
+    </section>
+
+    <!-- Sección de Transporte Privado -->
+    <section class="service-section">
+        <div class="bg-texture"></div>
+        <div class="service-content">
+            <h2 class="service-title">Transporte Privado</h2>
+            <p class="service-description">Disfrute de una experiencia de viaje sin preocupaciones con nuestro servicio de transporte privado, disponible para todos nuestros huéspedes.</p>
+            <p class="service-description">Nuestros conductores expertos conocen a la perfección las rutas y destinos más interesantes de la región, y estarán encantados de compartir sus conocimientos con usted.</p>
+            <p class="service-description">Desde el aeropuerto hasta el hotel, o para explorar los alrededores, nuestro servicio de transporte le garantiza comodidad, seguridad y puntualidad en todo momento.</p>
+            <a href="#" class="service-cta">Reservar traslado</a>
+        </div>
+        <div class="service-image">
+            <img src="/api/placeholder/600/400" alt="Transporte Privado">
+        </div>
+    </section>
+
+    <!-- Sección de Eventos Únicos -->
+    <section class="service-section">
+        <div class="bg-texture"></div>
+        <div class="service-content">
+            <h2 class="service-title">Eventos Únicos</h2>
+            <p class="service-description">Celebre momentos especiales en un entorno incomparable. Nuestros espacios versátiles son perfectos para bodas, reuniones corporativas o fiestas privadas.</p>
+            <p class="service-description">Nuestro equipo de planificación de eventos se encargará de todos los detalles, para que pueda relajarse y disfrutar de la celebración.</p>
+            <p class="service-description">Desde la decoración hasta el menú, personalizamos cada aspecto para crear una experiencia inolvidable acorde con sus preferencias.</p>
+            <a href="#" class="service-cta">Más información</a>
+        </div>
+        <div class="service-image">
+            <img src="/api/placeholder/600/400" alt="Eventos Únicos">
+        </div>
+    </section>
+
+    <!-- Sección de Experiencias en Playa -->
+    <section class="service-section">
+        <div class="bg-texture"></div>
+        <div class="service-content">
+            <h2 class="service-title">Experiencias en playa</h2>
+            <p class="service-description">Nuestra ubicación en la espectacular playa ofrece infinitas posibilidades para disfrutar de momentos inolvidables, desde románticas cenas a la orilla del mar hasta actividades acuáticas.</p>
+            <p class="service-description">Nuestro personal está siempre dispuesto a crear experiencias personalizadas que se adapten a sus preferencias y necesidades, convirtiendo cada momento en un recuerdo especial.</p>
+            <a href="#" class="service-cta">Explorar actividades</a>
+        </div>
+        <div class="service-image">
+            <img src="/api/placeholder/600/400" alt="Experiencias en playa">
+        </div>
+    </section>
+    </div>
+    <footer>
+    <%- include('../partials/footer'); %>
+    </footer>
+    <script src="/js/index.js"></script>
+</body>
+</html>
+
