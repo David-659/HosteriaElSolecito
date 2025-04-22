@@ -1,0 +1,56 @@
+<%- include('partials/-bases') %>
+
+<% block('tittle') { %>
+  Galeria
+<% } %>
+
+<% block('style') { %>
+  <link rel="stylesheet" href="/static/css/Galeria.css">
+<% } %>
+
+<% block('js') { %>
+  <script src="/static/js/Galeria.js"></script>
+<% } %>
+
+<% block('cuerpo') { %>
+<main>
+  <h1 class="gallery-title text-center mt-4">Explora Nuestra Galería</h1>
+  
+  <section class="gallery container my-4">
+    <div class="row g-3">
+      <% imagenes.forEach((i, index) => { %>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#galeriaModal" data-bs-slide-to="<%= index %>">
+            <img src="/static/<%= i %>" class="img-fluid rounded galeria-thumb" alt="Imagen galería">
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+</main>
+
+<!-- Modal Carrusel -->
+<div class="modal fade" id="galeriaModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-dark border-0">
+      <div class="modal-body p-0">
+        <div id="carouselGaleria" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <% imagenes.forEach((i, index) => { %>
+              <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                <img src="/static/<%= i %>" class="d-block w-100" alt="Imagen galería">
+              </div>
+            <% }) %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselGaleria" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselGaleria" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>

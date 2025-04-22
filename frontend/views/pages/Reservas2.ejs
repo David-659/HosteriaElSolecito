@@ -1,0 +1,78 @@
+{% extends '-bases.html' %}
+{% load static %}
+{% block tittle %} inicio {% endblock %}
+{% block style %} {% static 'css/Reservas.css' %} {% endblock %}
+{% block js %} {% static 'js/Reservas.js' %} {% endblock %}
+{% block cuerpo %}
+<h2  class="titul text-center">Seleccione una habitación</h2>
+<div class="habitaciones-lista conte">
+    <div class="row">
+        {% if cantidad > 1 %}
+            <h2>{{cantidad}} habitaciones a seleccionar:</h2>
+        {% endif %}
+        {% if request.session.datos_reserva.seleccionadas %}
+            {% for habi in request.session.datos_reserva.seleccionadas %}
+                {{ habi.nombre }}
+            {% endfor %}
+        {% endif %}
+        {% for habitacion in request.session.datos_reserva.disponibles %}
+        <div class="col-md-6">
+            <div class="card mb-3" style="max-width: 700px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <div style="position: relative; height: 260px; overflow: hidden;">
+                            <img src="{{ habitacion.foto }}" class="img-fluid rounded-start" alt="{{ habitacion.nombre }}" style="object-fit: cover; width: 100%; height: 100%;">
+                            <div class="ofer">
+                                ★ Oferta especial
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ habitacion.nombre }}<span class="text-warning">★★★</span></h5>
+                            <p class="card-text">{{ habitacion.descripcion }}</p>
+                            <div>
+                                <i class="bi bi-cup"></i>
+                                <i class="bi bi-person"></i>
+                                <i class="bi bi-signpost"></i>
+                                <i class="bi bi-paw"></i>
+                                <i class="bi bi-parking"></i>
+                                <i class="bi bi-emoji-smile"></i>
+                                <i class="bi bi-water"></i>
+                                <i class="bi bi-clock"></i>
+                                <i class="bi bi-chef-hat"></i>
+                                <i class="bi bi-shop"></i>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4 class="card-text">{{ habitacion.precio }}</h4>
+                                    <small class="text-muted">capacidad: {{ habitacion.capacidad }}</small>
+                                    <p>Estado: {{ habitacion.estado }}</p>
+                                </div>
+                                    {% if cantidad > 1 %}
+                                        <form method="POST" action="{% url 'seleccion_habitacion' habitacion.id %}">
+                                            {% csrf_token %}
+                                                <button type="submit">agregar</button>
+                                    {% else %}
+                                        {% if servicio_id %}
+                                        <form method="POST" action="{% url 'pago' habitacion.id reserva.id servicio_id %}">
+                                        {% else %}
+                                        <form method="POST" action="{% url 'pago_sin_servicio' habitacion.id reserva.id %}">
+                                        {% endif %}
+                                            {% csrf_token %}
+                                            <button type="submit">Seleccionar</button>
+                                    {% endif %}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% if cantidad > 1 %}
+            <button type="submit" class="btn btn-primary">Reservar</button>
+        {% endif %}
+    </div>  
+</div>
+{% endblock %}
