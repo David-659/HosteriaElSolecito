@@ -1,0 +1,53 @@
+
+
+<footer class="footer">
+    <div class="footer-column">
+        <h2>Hostería Solecito</h2>
+        <p>Un lugar para descansar y conectar con la naturaleza.</p>
+        <p class="bold">Tu refugio perfecto.</p>
+    </div>
+    
+    <div class="footer-column">
+        <h3>Explora</h3>
+        <a href="{% url 'index' %}">Inicio</a>
+        <a href="{% url 'Habitaciones' %}">Habitaciones</a>
+        <a href="{% url 'Galeria' %}">Galería</a>
+        <a href="{% url 'agregar_reservas' %}">Reservas</a>
+        <a href="{% url 'Nosotros' %}">Nosotros</a>
+    </div>
+    
+    <div class="footer-column">
+        <h3>Ubicación</h3>
+        <p>Hostería El Solecito</p>
+        <p>Km 12 Vía Rionegro - La Ceja</p>
+        <p>Antioquia, Colombia</p>
+        <h3>Contactanos</h3>
+        <p>hosteriaelsolecito@gmail.com</p>
+        <p>+57 301 234 5678</p>
+    </div>
+
+    <div class="social-icons">
+        <a href="https://instagram.com" target="_blank">
+            <img src="https://img.icons8.com/?size=50&id=59780&format=png&color=ffffff" alt="Instagram">
+        </a>
+        <a href="https://facebook.com" target="_blank">
+            <img src="https://img.icons8.com/?size=50&id=59813&format=png&color=ffffff" alt="Facebook">
+        </a>
+        <a href="https://tiktok.com" target="_blank">
+            <img src="https://img.icons8.com/?size=48&id=phOKFKYpe00C&format=png&color=ffffff" alt="TikTok">
+        </a>
+        <a href="https://whatsapp.com" target="_blank">
+            <img src="https://img.icons8.com/?size=50&id=62855&format=png&color=ffffff" alt="WhatsApp">
+        </a>
+    </div>
+    
+    <div class="footer-column">
+        <h3>Legal</h3>
+        <a href="{% url 'terminos' %}">Términos y condiciones</a>
+    </div>
+</footer>
+<script src="{% block js %}  {% endblock %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>

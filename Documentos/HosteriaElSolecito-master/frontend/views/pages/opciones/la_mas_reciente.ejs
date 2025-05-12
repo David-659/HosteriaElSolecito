@@ -1,0 +1,54 @@
+{% extends '-bases.html' %}
+{% load static %}
+{% block tittle %} Administrador {% endblock %}
+{% block style %} {% static 'css/admin.css' %} {% endblock %}
+{% block js %} {% static 'js/admin.js' %} {% endblock %}
+
+{% block cuerpo %}
+<div class="container">
+    <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tablas
+        </a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'Administrador' %}">Reservas</a></li>
+            <li><a class="dropdown-item" href="{% url 'listar_habitaciones' %}">Habitaciones</a></li>
+            <li><a class="dropdown-item" href="{% url 'listar_clientes' %}">Usuarios</a></li>
+            <li><a class="dropdown-item" href="{% url 'listar_servicios' %}">Servicios</a></li>
+        </ul>
+    </div>
+
+    <h1>Reservas más Nuevas</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Fecha de Inicio</th>
+                <th scope="col">Fecha de Fin</th>
+                <th scope="col">Habitacion</th>
+                <th scope="col">Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reserva in reservas %}
+            <tr>
+                <td>{{ reserva.id }}</td>
+                <td>{{ reserva.cliente.nombre }}</td>
+                <td>{{ reserva.cliente.apellido }}</td>
+                <td>{{ reserva.fecha_inicio }}</td>
+                <td>{{ reserva.fecha_fin }}</td>
+                <td>{{ reserva.habitacion.numero_habitacion }}</td>
+                <td>{{ reserva.estado }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+        <a href="{% url 'Administrador' %}" class="btn btn-primary">Volver</a>
+    </div>
+</div>
+{% endblock %}
+
+

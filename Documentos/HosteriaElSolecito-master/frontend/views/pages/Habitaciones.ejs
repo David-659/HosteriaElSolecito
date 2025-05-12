@@ -1,0 +1,26 @@
+<%- include('-bases') %>
+
+<%- block('title') %>Habitaciones<%- endblock %>
+<%- block('style') %> <link rel="stylesheet" href="/static/css/Habitaciones.css"> <%- endblock %>
+
+<%- block('cuerpo') %>
+<div class="room-container">
+  <% habitaciones.forEach(habitacion => { %>
+  <div class="room-section">
+    <div class="room-info">
+      <h1><%= habitacion.nombre %></h1>
+      <p><%= habitacion.descripcion %></p>
+      <p>👥 Capacidad: <%= habitacion.capacidad %></p>
+      <p>💸 precio: $<%= habitacion.precio %></p>
+      <br>
+      <a href="<%= url('agregar_reservas') %>" class="reserve-button">Reservar Ahora</a>
+    </div>
+    <img src="<%= habitacion.foto.url %>" alt="Grand Suite" style="width:600px;height:400px;">
+  </div>
+  <% }) %>
+</div>
+
+<div class="amenity">
+  <span>🌐 Wifi Gratis</span>
+</div>
+<%- endblock %>
